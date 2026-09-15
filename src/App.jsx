@@ -4,7 +4,7 @@ import Home from "./pages/Home/Home"
 import ProductDetails from "./pages/ProductDetails/ProductDetails"
 import Cart from "./pages/Cart/Cart";
 import Categories from "./pages/Categories/Categories";
-import WishList from "./pages/wishList/WishList";
+import WishList from "./pages/WishList/WishList";
 import Login from "./pages/Login/Login";
 import NotFound from "./pages/NotFound/NotFound";
 import { Bounce, ToastContainer } from "react-toastify";
