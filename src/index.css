@@ -1,6 +1,6 @@
 :root {
   --bg-primary: #f0f3ec;
-  --bg-white: #ffffff;
+  --bg-scound: #FBFCFA;
   --text-main: #1e2421;
   --accent-color: #ec765c;
   --font-heading: "Playfair Display", Georgia, serif;
@@ -9,6 +9,10 @@
 
 .text-accent {
   color: var(--accent-color);
+}
+
+.bg-scound {
+  background-color: var(--bg-scound);
 }
 
 .bg-accent {
@@ -57,6 +61,32 @@ header a {
 
 .nav-menu li a:hover {
   color: var(--accent-color);
+}
+
+/* btn-g */
+.btn-g {
+  outline: none;
+  border: transparent 1px solid;
+  padding: 10px 24px;
+  border-radius: 4px;
+  background-color: transparent;
+  transition: all .2s;
+}
+
+.btn-shop {
+  background-color: #0f1110;
+  color: #fff;
+}
+
+.btn-shop:hover {
+  transform: translateY(-2px);
+  background-color: #2a2f2c;
+}
+
+.btn-categories:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+  transform: translateX(4px);
 }
 
 /* login */
@@ -202,6 +232,21 @@ form button.btn:hover {
   transform: translate(-4px) scale(1.02);
 }
 
+/* hero section */
+.dis.max-w {
+  max-width: 480px;
+}
+
+/* catecory cart at hero section */
+.category-card {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  transition: all .2s;
+}
+
+.category-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
 
 @media (min-width: 992px) {
   .nav-menu {
@@ -220,14 +265,13 @@ form button.btn:hover {
     width: 280px;
     height: 100vh;
     padding: 4.5rem 1.5rem 2rem;
-    background: var(--bg-white);
+    background: var(--bg-scound);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
     overflow-y: auto;
     transition: right 0.3s ease-in-out;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
   }
 
   .nav-menu.open {
