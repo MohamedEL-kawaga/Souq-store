@@ -3,7 +3,7 @@ import heroSection from "../../assets/images/Ecommerce-web-page-bro-e17406532072
 export default function HeroSection() {
     return (
         <>
-            <section className="hero-section">
+            <section className="hero-section bg-prim">
                 <div className="container">
                     <div className="row vh-100 flex-column-reverse justify-content-center align-items-center flex-lg-row g-4">
                         <div className="col-lg-7">

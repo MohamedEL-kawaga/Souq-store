@@ -15,6 +15,10 @@
   background-color: var(--bg-scound);
 }
 
+.bg-prim {
+  background-color: var(--bg-primary);
+}
+
 .bg-accent {
   background-color: var(--accent-color);
 }
@@ -35,7 +39,7 @@
 
 body {
   font-family: var(--font-body);
-  background: var(--bg-primary);
+  background-color: #FBFCFA;
   color: var(--text-main);
 }
 

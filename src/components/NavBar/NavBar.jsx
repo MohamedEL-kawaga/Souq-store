@@ -74,7 +74,7 @@ export default function NavBar() {
 
             {isOpen && (
                 <div
-                    className="menu-overlay z-0"
+                    className="menu-overlay z-1"
                     onClick={toggleMenu}
                 ></div>
             )}
