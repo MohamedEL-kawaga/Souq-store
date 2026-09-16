@@ -248,6 +248,11 @@ form button.btn:hover {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
+/* categories-header */
+.categories-header p {
+  max-width: 450px;
+}
+
 @media (min-width: 992px) {
   .nav-menu {
     display: flex;
