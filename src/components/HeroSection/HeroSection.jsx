@@ -5,7 +5,7 @@ export default function HeroSection() {
         <>
             <section className="hero-section">
                 <div className="container">
-                    <div className="row vh-100 flex-column-reverse justify-content-center align-items-center flex-lg-row g-4">
+                    <div className="row vh-100 flex-column-reverse justify-content-center align-items-center flex-lg-row g-5">
                         <div className="col-lg-7">
                             <div>
                                 <span className=" text-accent">NEW COLLECTION — 2026</span>
