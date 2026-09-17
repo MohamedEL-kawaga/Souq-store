@@ -1,10 +1,7 @@
 import { FaArrowRightLong } from "react-icons/fa6";
 import CategoryCard from "../CategoryCard/CategoryCard";
-import useGetCategories from "../../Hooks/useGetCategories";
 
-export default function CategoriesSection() {
-    const { allCategories } = useGetCategories();
-
+export default function CategoriesSection({ allCategories }) {
     return (
         <section className="py-5 bg-scound">
             <div className="container">

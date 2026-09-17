@@ -10,7 +10,7 @@ export default function useGetCategories() {
                 url: "https://dummyjson.com/products/categories"
             };
             const { data } = await axios.request(options);
-            console.log(data);
+            // console.log(data);
             if (data !== null) {
                 setAllCategories(data);
             }
