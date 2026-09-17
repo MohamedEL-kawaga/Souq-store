@@ -54,13 +54,6 @@ export default function ProuductsSection() {
                         </div>
                     </div>
 
-                    {/* some catecory to ux improve */}
-                    {/* <div className=" short-cat pb-3 pt-1">
-                        <span className="cat d-inline-block py-2 px-4 rounded-5 border border-1 bg-black text-white ">All categories</span>
-                        {allCategories.slice(0, -1).map((cat, index) => {
-                            return <span key={index} className="cat ms-2 d-inline-block py-2 px-4 rounded-5 border border-1 ">{cat.name}</span>
-                        })}
-                    </div> */}
 
                     {currentProducts ? (
                         popularProducts.map((product) => {

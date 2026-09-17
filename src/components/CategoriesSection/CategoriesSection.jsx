@@ -1,7 +1,9 @@
 import { FaArrowRightLong } from "react-icons/fa6";
 import CategoryCard from "../CategoryCard/CategoryCard";
+import useGetProductsOfCategory from "../../Hooks/useGetProductsOfCategory";
 
-export default function CategoriesSection({ allCategories }) {
+export default function CategoriesSection({ categories }) {
+    const { handleProductsCategory } = useGetProductsOfCategory();
     return (
         <section className="py-5 bg-scound">
             <div className="container">
@@ -13,9 +15,13 @@ export default function CategoriesSection({ allCategories }) {
                         </div>
                         <p className=" align-self-lg-end"><span className="me-1">View all</span> <FaArrowRightLong /></p>
                     </div>
-                    {allCategories.slice(0, 4).map((category, index) => {
-                        return <CategoryCard category={category} key={index} />
-                    })}
+                    {categories.slice(0, 4)?.map((cat) => (
+                        <CategoryCard
+                            key={cat.slug}
+                            category={cat}
+                            onCategoryClick={handleProductsCategory}
+                        />
+                    ))}
                 </div>
             </div>
         </section>

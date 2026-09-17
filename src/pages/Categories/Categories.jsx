@@ -1,8 +1,10 @@
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
 import useGetCategories from "../../Hooks/useGetCategories";
+import useGetProductsOfCategory from "../../Hooks/useGetProductsOfCategory";
 
 export default function Categories() {
     const { allCategories } = useGetCategories();
+    const { handleProductsCategory } = useGetProductsOfCategory();
     return (
         <section className="all-catecories-section">
             <div className="container py-5">
@@ -12,8 +14,12 @@ export default function Categories() {
                         <h2 className="display-4">Shop by category</h2>
                         <p className="text-muted pb-4">Find exactly what you're looking for, or discover something unexpected</p>
                     </div>
-                    {allCategories.map((category, index) => {
-                        return <CategoryCard category={category} key={index} />
+                    {allCategories.map((category) => {
+                        return <CategoryCard
+                            key={category.slug}
+                            category={category}
+                            onCategoryClick={handleProductsCategory}
+                        />
                     })}
                 </div>
             </div>

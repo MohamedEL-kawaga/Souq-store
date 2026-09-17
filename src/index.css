@@ -332,3 +332,8 @@ form button.btn:hover {
 .test {
   height: 8000px;
 }
+
+.cat-active {
+  background-color: #0f1110;
+  color: white;
+}

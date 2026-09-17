@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <>
             <HeroSection />
-            <CategoriesSection allCategories={allCategories} />
+            <CategoriesSection categories={allCategories} />
             <ProuductsSection allCategories={allCategories} />
         </>
     )
