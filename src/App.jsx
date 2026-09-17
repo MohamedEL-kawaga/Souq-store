@@ -4,6 +4,7 @@ import Home from "./pages/Home/Home"
 import ProductDetails from "./pages/ProductDetails/ProductDetails"
 import Cart from "./pages/Cart/Cart";
 import Categories from "./pages/Categories/Categories";
+import Products from "./pages/Products/Products";
 import WishList from "./pages/WishList/WishList";
 import Login from "./pages/Login/Login";
 import NotFound from "./pages/NotFound/NotFound";
@@ -31,6 +32,9 @@ function App() {
         {
           path: "categories",
           element: <Categories />
+        }, {
+          path: "products",
+          element: <Products />
         }, {
           path: "wishList",
           element: <WishList />
