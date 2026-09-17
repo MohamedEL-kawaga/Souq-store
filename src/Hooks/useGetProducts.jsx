@@ -1,28 +1,33 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
-export default function useGetProducts() {
-    const [currentProducts, setCurrentProducts] = useState(null);
+export default function useGetProducts(slug) {
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(false);
 
-    async function handleProducts() {
+    const handleProducts = useCallback(async (categorySlug) => {
+        setLoading(true);
         try {
-            const options = {
-                url: "https://dummyjson.com/products",
-                method: "GET"
-            };
+            const baseUrl = "https://dummyjson.com/products";
+            const url = categorySlug
+                ? `${baseUrl}/category/${categorySlug}`
+                : baseUrl;
 
-            const { data } = await axios.request(options);
-            // console.log(data);
-            if (data !== null) {
-                setCurrentProducts(data.products);
-            }
-
+            const { data } = await axios.get(url);
+            setProducts(data.products);
         } catch (error) {
-            console.log(error);
+            console.error("Error fetching products:", error);
         }
-    }
+        setLoading(false);
+    }, []);
+
     useEffect(() => {
-        handleProducts();
-    }, [])
-    return { currentProducts };
+        handleProducts(slug);
+    }, [slug, handleProducts]);
+
+    return {
+        products,
+        loading,
+        handleProducts
+    };
 }

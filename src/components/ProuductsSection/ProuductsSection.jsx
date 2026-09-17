@@ -5,13 +5,13 @@ import useGetProducts from "../../Hooks/useGetProducts";
 import { useEffect, useState } from "react";
 
 export default function ProuductsSection() {
-    const { currentProducts } = useGetProducts();
+    const { products } = useGetProducts();
     const [popularProducts, setPopularProducts] = useState([]);
     useEffect(() => {
-        if (currentProducts) {
-            setPopularProducts(currentProducts.slice(0, 16));
+        if (products) {
+            setPopularProducts(products.slice(0, 16));
         }
-    }, [currentProducts])
+    }, [products])
     function handleSort(e) {
         const value = e.target.value;
         let sorted = [...popularProducts];
@@ -21,7 +21,7 @@ export default function ProuductsSection() {
         } else if (value === "Price: high to low") {
             sorted.sort((a, b) => b.price - a.price);
         } else if (value === "Sort: Featured") {
-            sorted = currentProducts.slice(0, 16);
+            sorted = products.slice(0, 16);
         }
 
         setPopularProducts(sorted);
@@ -55,7 +55,7 @@ export default function ProuductsSection() {
                     </div>
 
 
-                    {currentProducts ? (
+                    {products ? (
                         popularProducts.map((product) => {
                             return <ProductsCart key={product.id} product={product} />;
                         })

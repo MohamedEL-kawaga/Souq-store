@@ -1,10 +1,10 @@
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
 import useGetCategories from "../../Hooks/useGetCategories";
-import useGetProductsOfCategory from "../../Hooks/useGetProductsOfCategory";
+import useGetProducts from "../../Hooks/useGetProducts";
 
 export default function Categories() {
     const { allCategories } = useGetCategories();
-    const { handleProductsCategory } = useGetProductsOfCategory();
+    const { handleProducts } = useGetProducts();
     return (
         <section className="all-catecories-section">
             <div className="container py-5">
@@ -18,7 +18,7 @@ export default function Categories() {
                         return <CategoryCard
                             key={category.slug}
                             category={category}
-                            onCategoryClick={handleProductsCategory}
+                            onCategoryClick={handleProducts}
                         />
                     })}
                 </div>
