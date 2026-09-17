@@ -2,6 +2,26 @@
     transition: all .2s;
 }
 
+.card.card-pro {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-pro .card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card-pro .pro-name {
+    min-height: 3.5rem;
+}
+
+.card-pro .discriotion-pro {
+    min-height: 4.5rem;
+}
+
 .card:hover {
     transform: scale(1.01);
 }
@@ -20,11 +40,11 @@
 
 .add-WL {
     position: absolute;
-    top: 14px;
-    right: 18px;
+    top: 10px;
+    right: 12px;
     width: 30px;
     height: 30px;
-    background-color: #ffffff;
+    background-color: #f3f0f0;
     color: #ec765c;
     border-radius: 50%;
     display: flex;
@@ -35,10 +55,10 @@
 
 .discount {
     position: absolute;
-    top: 14px;
-    left: 18px;
-    width: 40px;
-    height: 25px;
+    top: 10px;
+    left: 12px;
+    min-width: 40px;
+    min-height: 25px;
     border-radius: 6px;
     color: #ffffff;
     background-color: #ec765c;
@@ -46,6 +66,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.main-price {
+    font-size: 12px;
 }
 
 .category-pro {
@@ -77,11 +101,20 @@
 .short-cat {
     display: flex;
     overflow-x: auto;
+    scrollbar-width: none
 }
 
 .cat {
     cursor: pointer;
     min-width: max-content;
+    transition: all .2s ease;
+    border: 1px solid black;
+}
+
+.cat:hover {
+    background-color: #d95f47;
+    color: #fff;
+    border-color: #d95f47;
 }
 
 @media (max-width: 769px) {
