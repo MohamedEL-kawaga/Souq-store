@@ -1,6 +1,8 @@
 import { FaRegHeart, FaStar } from "react-icons/fa6";
+import useHandleWishList from "../../Hooks/useHandleWishList";
 
-export default function ProductsCart({ product }) {
+export default function ProductsCart({ product, onWishlistChange }) {
+    const { handleWishList, isInWishList } = useHandleWishList(product, onWishlistChange);
 
     return (
         <div className="col-6 col-md-4 col-lg-3" >
@@ -9,7 +11,7 @@ export default function ProductsCart({ product }) {
                     <img src={product.thumbnail}
                         className="card-img-top d-block p-3 "
                         alt={product.title} />
-                    <span className="add-WL"><FaRegHeart className="WL-icon" /></span>
+                    <span className={`add-WL ${isInWishList ? "wl-done" : ""}`} onClick={() => handleWishList(product)}><FaRegHeart className="WL-icon " /></span>
                     <span className="discount px-2 py-1">{product.discountPercentage}%</span>
                 </div>
                 <div className="card-body">

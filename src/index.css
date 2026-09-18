@@ -337,3 +337,47 @@ form button.btn:hover {
   background-color: #0f1110;
   color: white;
 }
+
+/* whishlist */
+
+
+
+.wishlist-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.wishlist-empty {
+  max-width: 36rem;
+  margin: 2rem auto 0;
+  padding: 3rem 1.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(30, 36, 33, 0.08);
+  border-radius: 1.5rem;
+  box-shadow: 0 18px 40px rgba(30, 36, 33, 0.06);
+}
+
+.empty-icon {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(236, 118, 92, 0.1);
+  color: var(--accent-color);
+  font-size: 1.5rem;
+}
+
+.wishlist-empty h3 {
+  font-size: clamp(1.8rem, 2vw, 2.4rem);
+}
+
+.wishlist-empty .btn-shop {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: #ec765c;
+}
