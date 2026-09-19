@@ -1,11 +1,47 @@
 import { FaRegHeart, FaStar } from "react-icons/fa6";
 import useHandleWishList from "../../Hooks/useHandleWishList";
 import { useContext } from "react";
+import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
 import { CartContext } from "../../Context/Cart.context/Cart.context";
+import { AuthContext } from "../../Context/Auth.context/Auth.context";
+
+const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+        confirmButton: "btn btn-success ms-2",
+        cancelButton: "btn btn-danger"
+    },
+    buttonsStyling: false
+});
 
 export default function ProductsCart({ product, onWishlistChange }) {
     const { handleWishList, isInWishList } = useHandleWishList(product, onWishlistChange);
     const { addToCart } = useContext(CartContext);
+    const { accessToken } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleAddToCart = (product) => {
+        if (!accessToken) {
+            swalWithBootstrapButtons.fire({
+                title: "Login required",
+                text: "You need to sign in before adding items to your cart.",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, go to login",
+                cancelButtonText: "No, stay here",
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate("/login");
+                }
+            });
+
+            return;
+        }
+
+        addToCart(product);
+    };
 
     return (
         <div className="col-6 col-md-4 col-lg-3" >
@@ -36,7 +72,7 @@ export default function ProductsCart({ product, onWishlistChange }) {
                         )}
                     </p>
                     <div className="buttons-card d-flex justify-content-center align-items-center gap-1 flex-grow-1">
-                        <button className="btn-g add-btn" onClick={() => addToCart(product)}>Add to Cart</button>
+                        <button className="btn-g add-btn" onClick={() => handleAddToCart(product)}>Add to Cart</button>
                         <button className="btn-g view-btn">View </button>
                     </div>
                 </div>
