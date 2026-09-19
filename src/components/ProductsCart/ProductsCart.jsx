@@ -1,8 +1,11 @@
 import { FaRegHeart, FaStar } from "react-icons/fa6";
 import useHandleWishList from "../../Hooks/useHandleWishList";
+import { useContext } from "react";
+import { CartContext } from "../../Context/Cart.context/Cart.context";
 
 export default function ProductsCart({ product, onWishlistChange }) {
     const { handleWishList, isInWishList } = useHandleWishList(product, onWishlistChange);
+    const { addToCart } = useContext(CartContext);
 
     return (
         <div className="col-6 col-md-4 col-lg-3" >
@@ -33,7 +36,7 @@ export default function ProductsCart({ product, onWishlistChange }) {
                         )}
                     </p>
                     <div className="buttons-card d-flex justify-content-center align-items-center gap-1 flex-grow-1">
-                        <button className="btn-g add-btn">Add to Cart</button>
+                        <button className="btn-g add-btn" onClick={() => addToCart(product)}>Add to Cart</button>
                         <button className="btn-g view-btn">View </button>
                     </div>
                 </div>

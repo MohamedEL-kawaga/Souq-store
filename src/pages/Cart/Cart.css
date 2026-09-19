@@ -1,0 +1,60 @@
+.cart-eyebrow {
+    color: var(--accent-color);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14rem;
+    text-transform: uppercase;
+}
+
+.cart-item img {
+    width: 6rem;
+    height: 6rem;
+    object-fit: contain;
+    padding: 0.4rem;
+    background: var(--bg-primary);
+    border-radius: 0.55rem;
+}
+
+.cart-back-link:hover {
+    color: var(--accent-color);
+}
+
+.cart-clear-button:hover {
+    color: var(--accent-color);
+}
+
+.cart-summary {
+    background: var(--bg-primary);
+    border: 1px solid rgba(30, 36, 33, 0.06);
+}
+
+.cart-primary-action {
+    background: var(--accent-color);
+    color: #fff;
+    font-weight: 700;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.cart-primary-action:hover {
+    background: #d95f47;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.cart-empty {
+    max-width: 38rem;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(30, 36, 33, 0.08);
+    border-radius: 1rem;
+}
+
+.cart-empty-icon {
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: rgba(236, 118, 92, 0.12);
+    color: var(--accent-color);
+    font-size: 1.5rem;
+}
