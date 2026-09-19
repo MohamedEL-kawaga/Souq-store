@@ -9,7 +9,8 @@ import WishList from "./pages/WishList/WishList";
 import Login from "./pages/Login/Login";
 import NotFound from "./pages/NotFound/NotFound";
 import { Bounce, ToastContainer } from "react-toastify";
-import { AuthProvider } from "./Auth.context/Auth.context";
+import { AuthProvider } from "./Context/Auth.context/Auth.context";
+import CartContextProvider from "./Context/Cart.context/Cart.context";
 
 function App() {
   const router = createBrowserRouter([
@@ -52,9 +53,13 @@ function App() {
   ]);
   return (
     <>
-      <AuthProvider>
-        <RouterProvider router={router} />
-      </AuthProvider>
+      <CartContextProvider>
+        <AuthProvider>
+          <RouterProvider router={router} />
+        </AuthProvider>
+      </CartContextProvider>
+
+
 
       <ToastContainer
         position="top-right"

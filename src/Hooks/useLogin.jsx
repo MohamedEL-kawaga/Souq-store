@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import * as yup from "yup";
 import { useContext } from "react";
-import { AuthContext } from "../Auth.context/Auth.context";
+import { AuthContext } from "../Context/Auth.context/Auth.context";
 
 
 const LoginSchema = yup.object({
