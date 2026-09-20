@@ -8,6 +8,8 @@ import Products from "./pages/Products/Products";
 import WishList from "./pages/WishList/WishList";
 import Login from "./pages/Login/Login";
 import NotFound from "./pages/NotFound/NotFound";
+import Profile from "./pages/Profile/Profile";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import { Bounce, ToastContainer } from "react-toastify";
 import { AuthProvider } from "./Context/Auth.context/Auth.context";
 import CartContextProvider from "./Context/Cart.context/Cart.context";
@@ -39,6 +41,11 @@ function App() {
         }, {
           path: "wishList",
           element: <WishList />
+        }, {
+          path: "user",
+          element: <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
         }
       ],
     },

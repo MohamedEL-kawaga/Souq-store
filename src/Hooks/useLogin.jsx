@@ -16,7 +16,7 @@ const LoginSchema = yup.object({
 
 export default function useLogin() {
     // const { accessToken, setAccessToken, refreshToken, setRefreshToken } = useContext(AuthContext); //include refreshToken&accessToken to check vakue
-    const { setAccessToken, setRefreshToken } = useContext(AuthContext);
+    const { setAccessToken, setRefreshToken, setUser } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
@@ -32,15 +32,17 @@ export default function useLogin() {
                 withCredentials: true,
             };
             const { data } = await axios.request(options);
-            console.log(data);
             if (data) {
                 toast.success("Logged in successfully!");
                 setAccessToken(data.accessToken);
                 localStorage.setItem("accessToken", JSON.stringify(data.accessToken));
-                // console.log(accessToken);
                 setRefreshToken(data.refreshToken);
                 localStorage.setItem("refreshToken", JSON.stringify(data.refreshToken));
-                // console.log(refreshToken);
+                const userData = { ...data };
+                delete userData.accessToken;
+                delete userData.refreshToken;
+                setUser(userData);
+                localStorage.setItem("souq-user", JSON.stringify(userData));
                 navigate("/");
             }
         } catch (error) {
