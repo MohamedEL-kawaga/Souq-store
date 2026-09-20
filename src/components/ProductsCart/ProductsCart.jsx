@@ -73,7 +73,13 @@ export default function ProductsCart({ product, onWishlistChange }) {
                     </p>
                     <div className="buttons-card d-flex justify-content-center align-items-center gap-1 flex-grow-1">
                         <button className="btn-g add-btn" onClick={() => handleAddToCart(product)}>Add to Cart</button>
-                        <button className="btn-g view-btn">View </button>
+                        <button
+                            className="btn-g view-btn"
+                            type="button"
+                            onClick={() => navigate(`/productDetails/${product.id}`)}
+                        >
+                            View
+                        </button>
                     </div>
                 </div>
             </div>

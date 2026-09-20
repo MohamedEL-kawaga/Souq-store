@@ -3,10 +3,12 @@ import { useState } from "react";
 export default function useHandleWishList(product, onWishlistChange) {
     const [isInWishList, setIsInWishList] = useState(() => {
         const wishList = JSON.parse(localStorage.getItem("wishList")) || [];
-        return wishList.some(item => item.id === product.id);
+        return wishList.some(item => item.id === product?.id);
     });
 
     function handleWishList() {
+        if (!product) return;
+
         let wishList = JSON.parse(localStorage.getItem("wishList")) || [];
         const isExist = wishList.some(item => item.id === product.id);
 

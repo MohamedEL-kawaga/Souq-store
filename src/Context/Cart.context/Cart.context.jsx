@@ -6,7 +6,19 @@ export const CartContext = createContext();
 function getStoredCart() {
     try {
         const storedCart = localStorage.getItem("souq-cart");
-        return storedCart ? JSON.parse(storedCart) : [];
+        const parsedCart = storedCart ? JSON.parse(storedCart) : [];
+
+        return parsedCart.reduce((uniqueCart, item) => {
+            const existingItem = uniqueCart.find((cartItem) => cartItem.id === item.id);
+
+            if (existingItem) {
+                existingItem.quantity += item.quantity || 1;
+                return uniqueCart;
+            }
+
+            uniqueCart.push({ ...item, quantity: item.quantity || 1 });
+            return uniqueCart;
+        }, []);
     } catch {
         return [];
     }
@@ -19,16 +31,20 @@ export default function CartContextProvider({ children }) {
         localStorage.setItem("souq-cart", JSON.stringify(cart));
     }, [cart]);
 
-    function addToCart(product) {
-        const itemExists = cart.some((item) => item.id === product.id);
+    function addToCart(product, quantityToAdd = 1) {
+        const quantity = Math.max(1, quantityToAdd);
+        let itemExists = false;
 
         setCart((currentCart) => {
-            if (!itemExists) {
-                return [...currentCart, { ...product, quantity: 1 }];
+            const existingItem = currentCart.find((item) => item.id === product.id);
+
+            if (!existingItem) {
+                return [...currentCart, { ...product, quantity }];
             }
 
+            itemExists = true;
             return currentCart.map((item) => item.id === product.id
-                ? { ...item, quantity: item.quantity + 1 }
+                ? { ...item, quantity: item.quantity + quantity }
                 : item
             );
         });
